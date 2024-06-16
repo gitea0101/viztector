@@ -1,3 +1,4 @@
+# 작성한 코드
 from val_extraction import pre_load_nets, get_groups, parse_args
 from requests import request
 from requests.exceptions import HTTPError
