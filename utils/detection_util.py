@@ -15,11 +15,9 @@ from main import EasyPororoOcr
 ocr = EasyPororoOcr()
 
 
-# SUBSCRIPTION_KEY = "f9d2a2a80dfd4e74b4f807ec26aad89b"
-# ENDPOINT_URL = "https://yejikim.cognitiveservices.azure.com/"
-# computervision_client = ComputerVisionClient(ENDPOINT_URL, CognitiveServicesCredentials(SUBSCRIPTION_KEY))
 SUBSCRIPTION_KEY = ""
 ENDPOINT_URL = ""
+# computervision_client = ComputerVisionClient(ENDPOINT_URL, CognitiveServicesCredentials(SUBSCRIPTION_KEY))
 
 
 # 3. 매칭 - 데이터 & OCR
