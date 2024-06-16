@@ -192,14 +192,14 @@ def _decode_detection_or_group(tl_heat, br_heat, tl_regr, br_regr, K=100, kernel
     
 def _decode_detection(
         tl_heat, br_heat, tl_regr, br_regr,
-        K=100, kernel=1
+        K=256, kernel=3
 ):
     return _decode_detection_or_group(tl_heat, br_heat, tl_regr, br_regr,
         K, kernel, "pure")
 
 def _decode_group(
         tl_heat, br_heat, tl_regr, br_regr,
-        K=100, kernel=1
+        K=256, kernel=3
 ):
     return _decode_detection_or_group(tl_heat, br_heat, tl_regr, br_regr,
         K, kernel, "group")

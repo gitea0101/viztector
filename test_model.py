@@ -160,21 +160,22 @@ def test_kp_grouping(image, db, nnet, decode_func=kp_decode_grouping, cuda_id=0)
 
     detections_point_tl = []
     detections_point_br = []
+    max_hw = max(height, width)
+    size = [max_hw, max_hw]
     center = np.array([height // 2, width // 2])
 
-    inp_height = height | 127
-    inp_width  = width  | 127
+    inp_height = 511
+    inp_width  = 511
     images  = np.zeros((1, 3, inp_height, inp_width), dtype=np.float32)
     ratios  = np.zeros((1, 2), dtype=np.float32)
     borders = np.zeros((1, 4), dtype=np.float32)
     sizes   = np.zeros((1, 2), dtype=np.float32)
 
-    out_height, out_width = (inp_height + 1) // 4, (inp_width + 1) // 4
-    height_ratio = out_height / inp_height
-    width_ratio  = out_width  / inp_width
+    height_ratio = 128 / max_hw 
+    width_ratio  = 128 / max_hw 
 
-    resized_image = cv2.resize(image, (width, height))
-    resized_image, border, offset = crop_image(resized_image, center, [inp_height, inp_width])
+    resized_image, border, offset = crop_image(image, center, size)
+    resized_image = cv2.resize(resized_image, (inp_width, inp_height))
     # 将图像的像素值归一化到[0, 1]范围
     resized_image = resized_image / 255.
     resized_image = normalize_(resized_image)

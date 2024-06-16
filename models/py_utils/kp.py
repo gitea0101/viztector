@@ -478,8 +478,8 @@ class kp_group(nn.Module):
         _, _, height, width = key_cnv.size() # heatmap size
         key_feat    = _transpose_and_gather_feat(key_cnv, key_inds)
         center_feat = _transpose_and_gather_feat(center_cnv, center_inds)
-        key_len = (key_scores[b_ind] > 0.4).sum()
-        cen_len = (center_scores[b_ind] > 0.4).sum()
+        key_len = (key_scores[b_ind] > 0.39).sum()
+        cen_len = (center_scores[b_ind] > 0.28).sum()
         if key_len == 0 or cen_len == 0: return detections_key, detections_cen, torch.zeros((1,1))
         
         cen_emb = center_feat[b_ind][:cen_len, :]

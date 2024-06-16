@@ -74,13 +74,14 @@ def get_groups(keys, cens, group_scores):
     # p[0] > thres: 这是过滤条件，其中 p 是 keys[1] 中的一个元素（例如一个坐标点或分数），p[0] 是该元素的第一个值。只有当此值大于预定义阈值 thres 时，该元素才会被包括在新列表中。
     #print(keys[1])
     #print(cens)
-    thres = 0.4
+    key_thres = 0.39
+    cen_thres = 0.28
     groups = []
     group_scores_ = group_scores
-    group_thres = 0.4
+    group_thres = 0.3
     for category in range (3):
-        keys_trim = [p for p in keys[category] if p[0] > thres]
-        cens_trim = [p for p in cens[category] if p[0] > thres]
+        keys_trim = [p for p in keys[category] if p[0] > key_thres]
+        cens_trim = [p for p in cens[category] if p[0] > cen_thres]
         #print(cens_trim)
         #print("Shape of group_scores:", group_scores.shape)
         #print("Length of cens_trim:", len(cens_trim))
@@ -126,8 +127,8 @@ def get_groups(keys, cens, group_scores):
             # 列索引：[len(cens_trim) : len(keys_trim) + len(cens_trim)] - 这部分选择了从 len(cens_trim) 到 len(keys_trim) + len(cens_trim) 的列，其中 keys_trim 可能表示关键点的一个子集。
             # 使用 PyTorch 的 topk 函数从 group_scores 中选择前2个最大值，并获取它们的值和索引。
             vals, inds = torch.topk(group_scores, 2)
-        #print(vals)
-        #print(cens_trim)    
+        # print(vals)
+        # print(cens_trim)    
         #print(f"len cens_trim: {len(cens_trim)}, len vals: {len(vals)}")
         for i in range(len(cens_trim)):
             # 如果当前值大于组阈值的数量等于 vals 的第二维大小
