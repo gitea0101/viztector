@@ -90,12 +90,12 @@ function sendImageUrlToServer(imageUrl, rect) {
         const copyImageUrl = `data:image/png;base64,${imageData.correctionCopy}`;
         showImageNextToElement(copyImageUrl, rect);
       }
-      if (typeof imageData.distortionDetected !== 'undefined') {
-        showDistortionResult(imageData.distortionDetected);
-      }
       if (imageData.csvFile) {
         savedCSVData = imageData.csvFile; // CSV 데이터를 변수에 저장
         downloadCSV(savedCSVData);
+      }
+      if (typeof imageData.distortionDetected !== 'undefined') {
+        showDistortionResult(imageData.distortionDetected);
       }
     }
   };
@@ -175,7 +175,7 @@ function downloadCSV(csvContent) {
 }
 
 function showDistortionResult(isDistorted) {
-  const imageLayer = document.getElementById('image-layer');
+  const imageLayer = document.getElementById('loading-layer');
   if (isDistorted !== true) {
     imageLayer.innerHTML = ''; // Clear existing loading animation
     const resultMessage = document.createElement('div');
