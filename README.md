@@ -43,7 +43,7 @@ Image and Video Capture Extension
 Start 버튼 클릭후 이미지 클릭
 ~~~
 
-Start 버튼 이미지 클릭시 서버로 이미지 전송
-Capture 버튼 Start 버튼 클리후 활성 웹페이지내 Video를 캡쳐하여 서버로 이미지 전송
-Reset 버튼 이벤트 리스너 및 저장된 CSV 데이터 삭제
-download 버튼 서버에 업로드된 데이터 CSV파일로 다운로드
+Start 버튼 이미지 클릭시 서버로 이미지 전송  
+Capture 버튼 Start 버튼 클리후 활성 웹페이지내 Video를 캡쳐하여 서버로 이미지 전송  
+Reset 버튼 이벤트 리스너 및 저장된 CSV 데이터 삭제  
+download 버튼 서버에 업로드된 데이터 CSV파일로 다운로드  
