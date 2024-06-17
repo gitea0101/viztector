@@ -1,5 +1,5 @@
 # viztector
-[ChartReader](https://github.com/zhiqic/ChartReader), [korean_ocr_using_pororo](https://github.com/black7375/korean_ocr_using_pororo/tree/easyocr)
+[ChartReader](https://github.com/zhiqic/ChartReader), [korean_ocr_using_pororo](https://github.com/black7375/korean_ocr_using_pororo)
 기반 그래프 왜곡탐지 모델
 
 ### 콘다 가상환경 설정
@@ -32,7 +32,8 @@ detection_test.ipynb 실행
 correction_test.ipynb 실행  
   
 크롬 익스텐션 설치  
-  
-서버 실행  
-python server.py  
 
+서버 실행
+~~~
+python server.py  
+~~~
