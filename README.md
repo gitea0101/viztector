@@ -38,7 +38,7 @@ python server.py
 ~~~
 크롬 익스텐션 설치  
 ~~~
-확장 - 확장 관리 - 압축 풀린 파일 로드 - Viztector_CE 로드
+확장 - 확장 관리 - 압축 풀린 파일 로드 - Viztector_CE 폴더 선택
 Image and Video Capture Extension
 Start 버튼 클릭후 이미지 클릭
 ~~~
