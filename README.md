@@ -30,10 +30,13 @@ detection_test.ipynb 실행
 ### 왜곡 탐지  
 
 correction_test.ipynb 실행  
-  
-크롬 익스텐션 설치  
 
-서버 실행
+### 익스텐션 사용
+서버 실행  
 ~~~
 python server.py  
+~~~
+크롬 익스텐션 설치  
+~~~
+확장 - 확장 관리 - 압축 풀린 파일 로드 - Viztector_CE 로드
 ~~~
