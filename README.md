@@ -1,10 +1,11 @@
 # viztector
+콘다 가상환경 설정
 ~~~
 conda create -n Viztector python=3.7.13
 conda activate Viztector
 ~~~
 
-Pororo 설치
+패키지 및 Pororo 설치
 ~~~
 pip install -r .\requirements.txt
 git clone https://github.com/kakaobrain/pororo.git
