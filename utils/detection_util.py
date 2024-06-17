@@ -1,4 +1,4 @@
-# 작성한 코드
+# 만든 코드
 import io
 import time
 import numpy as np
@@ -11,14 +11,17 @@ from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from azure.cognitiveservices.vision.computervision.models import OperationStatusCodes
 from msrest.authentication import CognitiveServicesCredentials
 
-from main import EasyPororoOcr
+from ocr_main import EasyPororoOcr
 ocr = EasyPororoOcr()
-
 
 SUBSCRIPTION_KEY = ""
 ENDPOINT_URL = ""
-# computervision_client = ComputerVisionClient(ENDPOINT_URL, CognitiveServicesCredentials(SUBSCRIPTION_KEY))
 
+try: 
+    computervision_client = ComputerVisionClient(ENDPOINT_URL, CognitiveServicesCredentials(SUBSCRIPTION_KEY))
+    print("using azure")
+except:
+    print("using pororo")
 
 # 3. 매칭 - 데이터 & OCR
 # 3-1. OCR 읽기
@@ -64,7 +67,9 @@ def extract_text_from_image(img):
         return results
     
     else:
-        text = ocr.run_ocr(img, debug=False)
+        ocr_img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+        ocr_img = cv2.cvtColor(ocr_img,cv2.COLOR_GRAY2BGR)
+        text = ocr.run_ocr(ocr_img, debug=False)
         results = []
         for bbox, txt in text:
             txt = re.sub('[,;.]','',txt)

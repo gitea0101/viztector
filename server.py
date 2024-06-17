@@ -1,4 +1,4 @@
-# 작성한 코드
+# 만든 코드
 from val_extraction import pre_load_nets, get_groups, parse_args
 from requests import request
 from requests.exceptions import HTTPError
@@ -143,7 +143,9 @@ def plot_line1(df, is_dist):
 def plot_line2(df):
     plt.figure()
     if 'labels' in df.columns:
-        plt.plot(df['labels'],df['value'],color=df['color'][0])
+        plt.plot(df['labels'],df['value'],'o-',color=df['color'][0])
+        for n, i in df.iterrows():
+            plt.text(i['labels'],i['value']*1.03, i['value_text'], ha='center')
         plt.ylim((0,max(df['value'])*1.1))
         plt.xticks(rotation=45)
     else: 
@@ -298,8 +300,8 @@ async def handler(websocket):
                                     'csvFile': csv_file}
                         await websocket.send(json.dumps(send_data))
                     
-            elif 'image' in data.keys():
-                img = np.fromstring(base64.b64decode(re.sub('data:image/jpeg;base64,','',data['image'])), dtype='uint8')
+            elif 'imageData' in data.keys():
+                img = np.fromstring(base64.b64decode(re.sub('data:image/jpeg;base64,','',data['imageData'])), dtype='uint8')
                 img = cv2.imdecode(img,1)
                 
                 if img is None:

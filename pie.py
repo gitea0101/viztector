@@ -1,4 +1,4 @@
-# 작성한 코드
+# 만든 코드
 import numpy as np
 import re
 
@@ -291,10 +291,10 @@ def find_labels(angles, results, threshold):
                             if min_value == dists:
                                 labels_lst[i].pop(second_min_index)
                                 labels_lst[i].append(text)
-
+    
     for i in range(len(angles)):
         for j, labels in enumerate(labels_lst):         
-            angles[i][j]['labels'] = ' '.join(labels)                 
+            angles[i][j]['labels'] = ' '.join(labels)
         
     return angles
 

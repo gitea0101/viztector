@@ -1,0 +1,276 @@
+#popup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 18px;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 20px;
+  transition: all 0.3s ease;
+  max-width: 600px;
+  max-height: 200px;
+  margin: 5px auto;
+  gap: 5px; 
+}
+
+
+.round-button {
+  --primary-color: rgb(255, 121, 0);
+  --secondary-color: #fff;
+  --hover-color: #111;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 14px;
+  color: var(--secondary-color);
+  padding: 1em 1.8em;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  font-weight: normal;  
+  height: 35px;
+  position: relative;
+}
+
+.round-button .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.round-button .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+
+.round-button .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--secondary-color);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+
+.round-button .redo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.round-button .camera-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.round-button .download-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.round-button .icon {
+  font-size: 14px;
+  transition: color 0.2s ease;
+  margin-bottom: 0;
+}
+
+.round-button:hover {
+  background-color: var(--hover-color);
+}
+
+.round-button:hover .arrow {
+  background: var(--secondary-color);
+}
+
+.round-button:hover .arrow:before {
+  right: 0;
+}
+
+.round-button:hover .redo-wrapper .icon {
+  color: var(--secondary-color);
+  animation: rotate 0.5s linear;
+}
+
+.round-button:hover .camera-wrapper .icon {
+  color: var(--secondary-color);
+  animation: blink 1s 1;;
+}
+
+.round-button:hover .download-wrapper .icon {
+  color: var(--secondary-color);
+  animation: bounce 0.5s 1;
+}
+
+.round-button:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+
+}
+
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes blink {
+  0% {
+    color: var(--secondary-color);
+  }
+  50% {
+    color: transparent;
+  }
+  100% {
+    color: var(--secondary-color);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-5px);
+  }
+}
+
+.close-button {
+  --primary-color: rgba(255, 255, 255, 0.904);
+  --secondary-color: #000000;
+  --hover-color: #111;
+  --arrow-width: 2px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 10px;
+  color: var(--secondary-color);
+  padding: 1em 1em;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  height: 10px;
+  width: 10px; 
+  position: absolute;
+  top: 5px; /* 상단에서 10px 떨어지게 설정 */
+  right: 5px; /* 오른쪽에서 10px 떨어지게 설정 */
+}
+
+.close-button:hover {
+  background-color: rgba(255, 0, 0, 0.918); 
+}
+
+#capture:disabled {
+  background-color: rgb(93, 97, 97);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#screenshot_background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+}
+
+#screenshot {
+  position: fixed;
+  z-index: 9999;
+  border: 2px dashed orange;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: auto; /* 너비를 자동으로 설정 */
+  max-width: 100px; /* 최대 너비를 설정하여 너무 넓어지지 않도록 */
+  background-color: black; /* 배경색 설정 */
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 10px; /* 패딩을 약간 조정하여 더 나은 모양 */
+  position: absolute;
+  z-index: 1;
+  bottom: -20%; 
+  left: 50%;
+  transform: translateX(-50%); /* 중앙 정렬 */
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.edit_cursor {
+  cursor: crosshair;
+}
+
+/* body {
+  width: 500px;
+  height: 80px;
+  margin: 0;
+  padding: 0;
+} */
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: gray;
+  border-radius: 50%;
+  animation: loading 1s 0s linear infinite;
+}
+
+.loading span:nth-child(1) {
+  animation-delay: 0s;
+  background-color: orange;
+}
+
+.loading span:nth-child(2) {
+  animation-delay: 0.2s;
+  background-color: orange;
+}
+
+.loading span:nth-child(3) {
+  animation-delay: 0.4s;
+  background-color: orange;
+}
+
+@keyframes loading {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}

@@ -74,7 +74,7 @@ def get_groups(keys, cens, group_scores):
     # p[0] > thres: 这是过滤条件，其中 p 是 keys[1] 中的一个元素（例如一个坐标点或分数），p[0] 是该元素的第一个值。只有当此值大于预定义阈值 thres 时，该元素才会被包括在新列表中。
     #print(keys[1])
     #print(cens)
-    key_thres = 0.39
+    key_thres = 0.395
     cen_thres = 0.28
     groups = []
     group_scores_ = group_scores

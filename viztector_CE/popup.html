@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>css</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS 파일을 preload -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.22.0/full/pyodide.js"></script>
+<!--css로 이동-->
+</head>
+<style>
+    body {
+      width: 500px; /* 팝업 창의 너비를 조정 */
+      height: 80px; /* 팝업 창의 높이를 조정 */
+      margin: 0;
+      padding: 0;
+    }
+</style>
+<body>
+
+    <div id="popup">
+        <button id="start" class="round-button">
+            START
+            <div class="arrow-wrapper">
+                <div class="arrow"></div>
+            </div>
+        </button>
+        <button id="reset" class="round-button">
+            RESET
+            <div class="redo-wrapper">
+                <i class="fas fa-redo icon"></i>
+            </div>
+        </button>
+        <button id="capture" class="round-button" disabled>
+            <div class="camera-wrapper">
+                <i class="fas fa-camera icon"></i>
+            </div>
+            <span class="tooltip-text"> CAPTURE</span>
+        </button>
+        <button id="download" class="round-button">
+            <div class="download-wrapper">
+                <i class="fas fa-download icon"></i>
+            </div>
+            <span class="tooltip-text">CSV</span>
+        </button>
+        <button id='close' class="close-button">
+            X
+        </button>
+    </div>
+    <div id="output"></div>
+    <script src="popup.js"></script>
+</body>
+</html>
