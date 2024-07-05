@@ -143,7 +143,7 @@ def process_text(results):
         elif has_digit:  
             return True
             
-    pattern = r'[*%+=@$#()]'
+    pattern = r'[%+=@$#()]'
     results = [{'text': re.sub(pattern, '', result['text']), **{k: v for k, v in result.items() if k != 'text'}} for result in results]
     for result in results:
         result['text'] = re.sub(pattern, '', result['text'])
@@ -174,12 +174,7 @@ def find_next_closest_element(point, results, used_bbox):
             if center_bbox:
                 dist = euclidean_distance(point, center_bbox)
                 if dist < min_distance:
-                    num_value = None
-                    if 'num' in result:
-                        num_value = result['num']
-                    elif 'onlyNum' in result:
-                        num_value = result['onlyNum']
-                    if num_value not in used_bbox:
+                    if center_bbox not in used_bbox:
                         min_distance = dist
                         closest_element = result
                         closest_bbox = center_bbox
